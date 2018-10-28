@@ -1,0 +1,19 @@
+{
+  "compilerVersion": "5.3.1",
+  "engineVersion": "5.3.1",
+  "modules": [
+    {
+      "name": "egret"
+    },
+    {
+      "name": "eui"
+    },
+    {
+      "name": "assetsmanager"
+    },
+    {
+      "name": "egret3d",
+      "path": "./egret3d"
+    }
+  ]
+}

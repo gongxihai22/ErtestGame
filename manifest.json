@@ -1,0 +1,12 @@
+{
+	"initial": [
+		"libs/modules/egret/egret.js",
+		"libs/modules/egret/egret.web.js",
+		"libs/modules/eui/eui.js",
+		"libs/modules/assetsmanager/assetsmanager.js",
+		"egret3d/bin/egret3d.js"
+	],
+	"game": [
+		"bin-debug/Main.js"
+	]
+}
