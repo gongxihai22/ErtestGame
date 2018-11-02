@@ -12,6 +12,46 @@
 			"name": "default_thm_json"
 		},
 		{
+			"url": "Assets/MainRoad.scene.json",
+			"type": "Scene",
+			"name": "Assets/MainRoad.scene.json"
+		},
+		{
+			"url": "Assets/Mytest.scene.json",
+			"type": "Scene",
+			"name": "Assets/Mytest.scene.json"
+		},
+		{
+			"url": "Assets/Road.prefab.json",
+			"type": "Prefab",
+			"name": "Assets/Road.prefab.json"
+		},
+		{
+			"url": "Assets/AssetRes/ResModel/Road/roadtex.mat.json",
+			"type": "Material",
+			"name": "Assets/AssetRes/ResModel/Road/roadtex.mat.json"
+		},
+		{
+			"url": "Assets/AssetRes/ResModel/drop/col_box02/col_box02.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/AssetRes/ResModel/drop/col_box02/col_box02.image.json"
+		},
+		{
+			"url": "Assets/AssetRes/ResModel/drop/col_box02/col_box02.png",
+			"type": "Texture",
+			"name": "Assets/AssetRes/ResModel/drop/col_box02/col_box02.png"
+		},
+		{
+			"url": "Assets/AssetRes/ResModel/drop/col_box02/Materials/col_box02.mat.json",
+			"type": "Material",
+			"name": "Assets/AssetRes/ResModel/drop/col_box02/Materials/col_box02.mat.json"
+		},
+		{
+			"url": "Library/Cube.mesh.bin",
+			"type": "Mesh",
+			"name": "Library/Cube.mesh.bin"
+		},
+		{
 			"url": "2d/assets/bg.jpg",
 			"type": "image",
 			"name": "bg_jpg"
@@ -57,11 +97,6 @@
 			"name": "button_up_png"
 		},
 		{
-			"url": "2d/assets/ItemRenderer/selected.png",
-			"type": "image",
-			"name": "selected_png"
-		},
-		{
 			"url": "2d/assets/CheckBox/checkbox_select_disabled.png",
 			"type": "image",
 			"name": "checkbox_select_disabled_png"
@@ -80,6 +115,11 @@
 			"url": "2d/assets/CheckBox/checkbox_unselect.png",
 			"type": "image",
 			"name": "checkbox_unselect_png"
+		},
+		{
+			"url": "2d/assets/ItemRenderer/selected.png",
+			"type": "image",
+			"name": "selected_png"
 		},
 		{
 			"url": "2d/assets/Panel/border.png",

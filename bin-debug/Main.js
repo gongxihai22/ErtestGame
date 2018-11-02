@@ -45,8 +45,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var helloworld;
 (function (helloworld) {
+    //  public t:paper.Scene = null;
     function run() {
         return __awaiter(this, void 0, void 0, function () {
+            var t, prefab, road1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, RES.loadConfig("default.res.json", "resource/")];
@@ -58,13 +60,22 @@ var helloworld;
                         // Create camera.
                         // egret3d.Camera.main;
                         // paper.Scene.create("MyTestScene.scene.json",true)
-                        return [4 /*yield*/, RES.getResAsync("3d/Assets/MyTestScene.scene.json")];
+                        //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
+                        // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
+                        return [4 /*yield*/, RES.getResAsync("Assets/MainRoad.scene.json")];
                     case 3:
                         // Create camera.
                         // egret3d.Camera.main;
                         // paper.Scene.create("MyTestScene.scene.json",true)
+                        //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
+                        // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
                         _a.sent();
-                        paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
+                        t = paper.Application.sceneManager.loadScene("Assets/MainRoad.scene.json");
+                        return [4 /*yield*/, RES.getResAsync("Assets/Road.prefab.json")];
+                    case 4:
+                        _a.sent();
+                        prefab = RES.getRes("Assets/Road.prefab.json");
+                        road1 = prefab.createInstance();
                         return [2 /*return*/];
                 }
             });

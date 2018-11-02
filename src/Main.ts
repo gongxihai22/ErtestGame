@@ -1,4 +1,5 @@
 namespace helloworld {
+  //  public t:paper.Scene = null;
 
     export async function run() {
         await RES.loadConfig("default.res.json", "resource/");
@@ -9,8 +10,18 @@ namespace helloworld {
 
        // paper.Scene.create("MyTestScene.scene.json",true)
 
-       await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
-        paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
+  //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
+  // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
+
+    await RES.getResAsync("Assets/MainRoad.scene.json");
+    var   t:paper.Scene  = paper.Application.sceneManager.loadScene("Assets/MainRoad.scene.json");
+
+    await RES.getResAsync("Assets/Road.prefab.json");
+    const prefab = RES.getRes("Assets/Road.prefab.json") as egret3d.Prefab
+    const road1 = prefab.createInstance()
+    
+     // var tt:paper.GameObject =  t.find("Cube")
+     //  tt.addComponent(RotateScript);
 
        // createCube();
       //  createGameUI();

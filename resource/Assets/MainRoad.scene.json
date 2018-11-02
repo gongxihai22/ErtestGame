@@ -1,0 +1,16 @@
+{
+	"assets":[
+	],
+	"objects":[
+		{"uuid":"1","class":"0","name":"MainRoad","ambientColor":[0.212,0.227,0.259,1],"lightmapIntensity":1,"gameObjects":[{"uuid":"2"},{"uuid":"3"}],"lightmaps":[]},
+		{"uuid":"2","class":"1","name":"Main Camera","tag":"MainCamera","layer":2,"isStatic":false,"components":[{"uuid":"4"},{"uuid":"5"}]},
+		{"uuid":"3","class":"1","name":"Directional Light","tag":"Untagged","layer":2,"isStatic":false,"components":[{"uuid":"6"}]}
+	],
+	"components":[
+		{"uuid":"4","class":"11","localPosition":[0.06,1.56,-5.92],"localRotation":[0.260311,0,0,0.965525],"localScale":[1,1,1],"children":[]},
+		{"uuid":"5","class":"4","fov":1.0471,"opvalue":1,"_near":0.3,"_far":1000,"cullingMask":16777215,"clearOption_Color":true,"clearOption_Depth":true,"backgroundColor":[0.192157,0.301961,0.47451,0],"viewport":[0,0,0.562,1],"order":-1},
+		{"uuid":"6","class":"11","localPosition":[0,3,0],"localRotation":[0.408218,-0.23457,0.109382,0.875426],"localScale":[1,1,1],"children":[]}
+	],
+
+	"version":4
+}
