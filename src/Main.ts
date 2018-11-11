@@ -13,15 +13,17 @@ namespace helloworld {
   //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
   // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
 
-    await RES.getResAsync("Assets/MainRoad.scene.json");
-    var   t:paper.Scene  = paper.Application.sceneManager.loadScene("Assets/MainRoad.scene.json");
+    await RES.getResAsync("Assets/Runpath.scene.json");
+    var   t:paper.Scene  = paper.Application.sceneManager.loadScene("Assets/Runpath.scene.json");
 
-    await RES.getResAsync("Assets/Road.prefab.json");
-    const prefab = RES.getRes("Assets/Road.prefab.json") as egret3d.Prefab
-    const road1 = prefab.createInstance()
+    await RES.getResAsync("Assets/Prisoner.prefab.json");
+    const prefab = RES.getRes("Assets/Prisoner.prefab.json") as egret3d.Prefab
+    const person = prefab.createInstance()
+    var ani =  person.getComponent(egret3d.Animation)
+    ani.play("run")
     
-     // var tt:paper.GameObject =  t.find("Cube")
-     //  tt.addComponent(RotateScript);
+     var tt:paper.GameObject =  t.find("Plane")
+      tt.addComponent(MovePlane);
 
        // createCube();
       //  createGameUI();
@@ -59,6 +61,23 @@ namespace helloworld {
             this.gameObject.transform.setLocalEulerAngles(sin * 45, cos * 45, 0);
         }
     }
+
+    
+    class MovePlane extends paper.Behaviour {
+        private _timer: number = 0;
+
+        public onUpdate(deltaTime: number) {
+            var pos:egret3d.Vector3 = this.gameObject.transform.getPosition();
+            pos.z += 10*deltaTime;
+            this.gameObject.transform.setPosition(pos)
+         //   this._timer += deltaTime;
+           // const sin = Math.sin(this._timer * 0.5);
+           // const cos = -Math.cos(this._timer * 0.5);
+
+           // this.gameObject.transform.setLocalEulerAngles(sin * 45, cos * 45, 0);
+        }
+    }
+
 
     class GameUIScript extends paper.Behaviour {
         public onStart() {

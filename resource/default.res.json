@@ -22,9 +22,94 @@
 			"name": "Assets/Mytest.scene.json"
 		},
 		{
+			"url": "Assets/Prisoner.prefab.json",
+			"type": "Prefab",
+			"name": "Assets/Prisoner.prefab.json"
+		},
+		{
 			"url": "Assets/Road.prefab.json",
 			"type": "Prefab",
 			"name": "Assets/Road.prefab.json"
+		},
+		{
+			"url": "Assets/Runpath.scene.json",
+			"type": "Scene",
+			"name": "Assets/Runpath.scene.json"
+		},
+		{
+			"url": "Assets/Meshes/Characters/Prisoner_death.ani.bin",
+			"type": "Animation",
+			"name": "Assets/Meshes/Characters/Prisoner_death.ani.bin"
+		},
+		{
+			"url": "Assets/Meshes/Characters/Prisoner_glide.ani.bin",
+			"type": "Animation",
+			"name": "Assets/Meshes/Characters/Prisoner_glide.ani.bin"
+		},
+		{
+			"url": "Assets/Meshes/Characters/Prisoner_jump.ani.bin",
+			"type": "Animation",
+			"name": "Assets/Meshes/Characters/Prisoner_jump.ani.bin"
+		},
+		{
+			"url": "Assets/Meshes/Characters/Prisoner_left.ani.bin",
+			"type": "Animation",
+			"name": "Assets/Meshes/Characters/Prisoner_left.ani.bin"
+		},
+		{
+			"url": "Assets/Meshes/Characters/Prisoner_right.ani.bin",
+			"type": "Animation",
+			"name": "Assets/Meshes/Characters/Prisoner_right.ani.bin"
+		},
+		{
+			"url": "Assets/Meshes/Characters/Prisoner_run.ani.bin",
+			"type": "Animation",
+			"name": "Assets/Meshes/Characters/Prisoner_run.ani.bin"
+		},
+		{
+			"url": "Assets/Meshes/Characters/Prisoner_slide.ani.bin",
+			"type": "Animation",
+			"name": "Assets/Meshes/Characters/Prisoner_slide.ani.bin"
+		},
+		{
+			"url": "Assets/Meshes/Characters/scurity_guard_rig_polySurface13.mesh.bin",
+			"type": "Mesh",
+			"name": "Assets/Meshes/Characters/scurity_guard_rig_polySurface13.mesh.bin"
+		},
+		{
+			"url": "Assets/Textures/Environment/T_E_Forestpathway.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/Textures/Environment/T_E_Forestpathway.image.json"
+		},
+		{
+			"url": "Assets/Textures/Environment/T_E_Forestpathway.png",
+			"type": "Texture",
+			"name": "Assets/Textures/Environment/T_E_Forestpathway.png"
+		},
+		{
+			"url": "Assets/Textures/Characters/T_C_Prisoner.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/Textures/Characters/T_C_Prisoner.image.json"
+		},
+		{
+			"url": "Assets/Textures/Characters/T_C_Prisoner.png",
+			"type": "Texture",
+			"name": "Assets/Textures/Characters/T_C_Prisoner.png"
+		},
+		{
+			"url": "Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin",
+			"type": "Animation",
+			"name": "Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin"
+		},
+		{
+			"url": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json",
+			"type": "Material",
+			"name": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json"
+		},
+		{
+			"url": "Assets/UltimateKit/Meshes/Patches/Materials/T_E_Forestpathway.mat.json",
+			"type": "Material",
+			"name": "Assets/UltimateKit/Meshes/Patches/Materials/T_E_Forestpathway.mat.json"
 		},
 		{
 			"url": "Assets/AssetRes/ResModel/Road/roadtex.mat.json",
@@ -52,6 +137,11 @@
 			"name": "Library/Cube.mesh.bin"
 		},
 		{
+			"url": "Library/Plane.mesh.bin",
+			"type": "Mesh",
+			"name": "Library/Plane.mesh.bin"
+		},
+		{
 			"url": "2d/assets/bg.jpg",
 			"type": "image",
 			"name": "bg_jpg"
@@ -60,6 +150,11 @@
 			"url": "2d/assets/egret_icon.png",
 			"type": "image",
 			"name": "egret_icon_png"
+		},
+		{
+			"url": "3d/Library/Cube.mesh.bin",
+			"type": "Mesh",
+			"name": "3d/Library/Cube.mesh.bin"
 		},
 		{
 			"url": "3d/Assets/boss_ym_gjfl.image.json",
@@ -80,11 +175,6 @@
 			"url": "3d/Assets/ttttt.mat.json",
 			"type": "Material",
 			"name": "3d/Assets/ttttt.mat.json"
-		},
-		{
-			"url": "3d/Library/Cube.mesh.bin",
-			"type": "Mesh",
-			"name": "3d/Library/Cube.mesh.bin"
 		},
 		{
 			"url": "2d/assets/Button/button_down.png",
@@ -172,21 +262,6 @@
 			"name": "track_sb_png"
 		},
 		{
-			"url": "2d/assets/Slider/thumb.png",
-			"type": "image",
-			"name": "thumb_png"
-		},
-		{
-			"url": "2d/assets/Slider/track.png",
-			"type": "image",
-			"name": "track_png"
-		},
-		{
-			"url": "2d/assets/Slider/tracklight.png",
-			"type": "image",
-			"name": "tracklight_png"
-		},
-		{
 			"url": "2d/assets/ToggleSwitch/handle.png",
 			"type": "image",
 			"name": "handle_png"
@@ -200,6 +275,21 @@
 			"url": "2d/assets/ToggleSwitch/on.png",
 			"type": "image",
 			"name": "on_png"
+		},
+		{
+			"url": "2d/assets/Slider/thumb.png",
+			"type": "image",
+			"name": "thumb_png"
+		},
+		{
+			"url": "2d/assets/Slider/track.png",
+			"type": "image",
+			"name": "track_png"
+		},
+		{
+			"url": "2d/assets/Slider/tracklight.png",
+			"type": "image",
+			"name": "tracklight_png"
 		}
 	]
 }

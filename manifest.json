@@ -4,7 +4,8 @@
 		"libs/modules/egret/egret.web.js",
 		"libs/modules/eui/eui.js",
 		"libs/modules/assetsmanager/assetsmanager.js",
-		"egret3d/bin/egret3d.js"
+		"egret3d/bin/egret3d.js",
+		"inspector/bin/inspector.js"
 	],
 	"game": [
 		"bin-debug/Main.js"

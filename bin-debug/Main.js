@@ -48,7 +48,7 @@ var helloworld;
     //  public t:paper.Scene = null;
     function run() {
         return __awaiter(this, void 0, void 0, function () {
-            var t, prefab, road1;
+            var t, prefab, person, ani, tt;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, RES.loadConfig("default.res.json", "resource/")];
@@ -62,7 +62,7 @@ var helloworld;
                         // paper.Scene.create("MyTestScene.scene.json",true)
                         //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
                         // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
-                        return [4 /*yield*/, RES.getResAsync("Assets/MainRoad.scene.json")];
+                        return [4 /*yield*/, RES.getResAsync("Assets/Runpath.scene.json")];
                     case 3:
                         // Create camera.
                         // egret3d.Camera.main;
@@ -70,12 +70,16 @@ var helloworld;
                         //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
                         // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
                         _a.sent();
-                        t = paper.Application.sceneManager.loadScene("Assets/MainRoad.scene.json");
-                        return [4 /*yield*/, RES.getResAsync("Assets/Road.prefab.json")];
+                        t = paper.Application.sceneManager.loadScene("Assets/Runpath.scene.json");
+                        return [4 /*yield*/, RES.getResAsync("Assets/Prisoner.prefab.json")];
                     case 4:
                         _a.sent();
-                        prefab = RES.getRes("Assets/Road.prefab.json");
-                        road1 = prefab.createInstance();
+                        prefab = RES.getRes("Assets/Prisoner.prefab.json");
+                        person = prefab.createInstance();
+                        ani = person.getComponent(egret3d.Animation);
+                        ani.play("run");
+                        tt = t.find("Plane");
+                        tt.addComponent(MovePlane);
                         return [2 /*return*/];
                 }
             });
@@ -115,6 +119,25 @@ var helloworld;
         return RotateScript;
     }(paper.Behaviour));
     __reflect(RotateScript.prototype, "RotateScript");
+    var MovePlane = (function (_super) {
+        __extends(MovePlane, _super);
+        function MovePlane() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this._timer = 0;
+            return _this;
+        }
+        MovePlane.prototype.onUpdate = function (deltaTime) {
+            var pos = this.gameObject.transform.getPosition();
+            pos.z += 10 * deltaTime;
+            this.gameObject.transform.setPosition(pos);
+            //   this._timer += deltaTime;
+            // const sin = Math.sin(this._timer * 0.5);
+            // const cos = -Math.cos(this._timer * 0.5);
+            // this.gameObject.transform.setLocalEulerAngles(sin * 45, cos * 45, 0);
+        };
+        return MovePlane;
+    }(paper.Behaviour));
+    __reflect(MovePlane.prototype, "MovePlane");
     var GameUIScript = (function (_super) {
         __extends(GameUIScript, _super);
         function GameUIScript() {
