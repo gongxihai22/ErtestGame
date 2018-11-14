@@ -22,6 +22,11 @@
 			"name": "Assets/Mytest.scene.json"
 		},
 		{
+			"url": "Assets/Plane.prefab.json",
+			"type": "Prefab",
+			"name": "Assets/Plane.prefab.json"
+		},
+		{
 			"url": "Assets/Prisoner.prefab.json",
 			"type": "Prefab",
 			"name": "Assets/Prisoner.prefab.json"
@@ -77,16 +82,6 @@
 			"name": "Assets/Meshes/Characters/scurity_guard_rig_polySurface13.mesh.bin"
 		},
 		{
-			"url": "Assets/Textures/Environment/T_E_Forestpathway.image.json",
-			"type": "TextureDesc",
-			"name": "Assets/Textures/Environment/T_E_Forestpathway.image.json"
-		},
-		{
-			"url": "Assets/Textures/Environment/T_E_Forestpathway.png",
-			"type": "Texture",
-			"name": "Assets/Textures/Environment/T_E_Forestpathway.png"
-		},
-		{
 			"url": "Assets/Textures/Characters/T_C_Prisoner.image.json",
 			"type": "TextureDesc",
 			"name": "Assets/Textures/Characters/T_C_Prisoner.image.json"
@@ -95,6 +90,16 @@
 			"url": "Assets/Textures/Characters/T_C_Prisoner.png",
 			"type": "Texture",
 			"name": "Assets/Textures/Characters/T_C_Prisoner.png"
+		},
+		{
+			"url": "Assets/Textures/Environment/T_E_Forestpathway.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/Textures/Environment/T_E_Forestpathway.image.json"
+		},
+		{
+			"url": "Assets/Textures/Environment/T_E_Forestpathway.png",
+			"type": "Texture",
+			"name": "Assets/Textures/Environment/T_E_Forestpathway.png"
 		},
 		{
 			"url": "Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin",
@@ -152,11 +157,6 @@
 			"name": "egret_icon_png"
 		},
 		{
-			"url": "3d/Library/Cube.mesh.bin",
-			"type": "Mesh",
-			"name": "3d/Library/Cube.mesh.bin"
-		},
-		{
 			"url": "3d/Assets/boss_ym_gjfl.image.json",
 			"type": "TextureDesc",
 			"name": "3d/Assets/boss_ym_gjfl.image.json"
@@ -175,6 +175,11 @@
 			"url": "3d/Assets/ttttt.mat.json",
 			"type": "Material",
 			"name": "3d/Assets/ttttt.mat.json"
+		},
+		{
+			"url": "3d/Library/Cube.mesh.bin",
+			"type": "Mesh",
+			"name": "3d/Library/Cube.mesh.bin"
 		},
 		{
 			"url": "2d/assets/Button/button_down.png",
@@ -232,6 +237,16 @@
 			"name": "track_pb_png"
 		},
 		{
+			"url": "2d/assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb_png"
+		},
+		{
+			"url": "2d/assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb_png"
+		},
+		{
 			"url": "2d/assets/RadioButton/radiobutton_select_disabled.png",
 			"type": "image",
 			"name": "radiobutton_select_disabled_png"
@@ -252,14 +267,19 @@
 			"name": "radiobutton_unselect_png"
 		},
 		{
-			"url": "2d/assets/ScrollBar/roundthumb.png",
+			"url": "2d/assets/Slider/thumb.png",
 			"type": "image",
-			"name": "roundthumb_png"
+			"name": "thumb_png"
 		},
 		{
-			"url": "2d/assets/ScrollBar/track_sb.png",
+			"url": "2d/assets/Slider/track.png",
 			"type": "image",
-			"name": "track_sb_png"
+			"name": "track_png"
+		},
+		{
+			"url": "2d/assets/Slider/tracklight.png",
+			"type": "image",
+			"name": "tracklight_png"
 		},
 		{
 			"url": "2d/assets/ToggleSwitch/handle.png",
@@ -275,21 +295,6 @@
 			"url": "2d/assets/ToggleSwitch/on.png",
 			"type": "image",
 			"name": "on_png"
-		},
-		{
-			"url": "2d/assets/Slider/thumb.png",
-			"type": "image",
-			"name": "thumb_png"
-		},
-		{
-			"url": "2d/assets/Slider/track.png",
-			"type": "image",
-			"name": "track_png"
-		},
-		{
-			"url": "2d/assets/Slider/tracklight.png",
-			"type": "image",
-			"name": "tracklight_png"
 		}
 	]
 }

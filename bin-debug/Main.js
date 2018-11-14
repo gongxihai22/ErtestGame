@@ -45,10 +45,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var helloworld;
 (function (helloworld) {
-    //  public t:paper.Scene = null;
     function run() {
         return __awaiter(this, void 0, void 0, function () {
-            var t, prefab, person, ani, tt;
+            var t, prefab, ani, preabplane, plane, plane2, pos;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, RES.loadConfig("default.res.json", "resource/")];
@@ -78,8 +77,23 @@ var helloworld;
                         person = prefab.createInstance();
                         ani = person.getComponent(egret3d.Animation);
                         ani.play("run");
-                        tt = t.find("Plane");
-                        tt.addComponent(MovePlane);
+                        person.addComponent(CharControl);
+                        return [4 /*yield*/, RES.getResAsync("Assets/Plane.prefab.json")];
+                    case 5:
+                        _a.sent();
+                        preabplane = RES.getRes("Assets/Plane.prefab.json");
+                        plane = preabplane.createInstance();
+                        // var ani =  person.getComponent(egret3d.Animation)
+                        // ani.play("run")
+                        //   var tt:paper.GameObject =  t.find("Plane")
+                        plane.addComponent(MovePlane);
+                        plane2 = preabplane.createInstance();
+                        pos = plane2.transform.getPosition();
+                        pos.z -= 200;
+                        plane2.transform.setPosition(pos);
+                        plane2.addComponent(MovePlane);
+                        // createCube();
+                        createGameUI();
                         return [2 /*return*/];
                 }
             });
@@ -129,15 +143,81 @@ var helloworld;
         MovePlane.prototype.onUpdate = function (deltaTime) {
             var pos = this.gameObject.transform.getPosition();
             pos.z += 10 * deltaTime;
+            if (pos.z >= 200)
+                pos.z = -200;
             this.gameObject.transform.setPosition(pos);
-            //   this._timer += deltaTime;
-            // const sin = Math.sin(this._timer * 0.5);
-            // const cos = -Math.cos(this._timer * 0.5);
-            // this.gameObject.transform.setLocalEulerAngles(sin * 45, cos * 45, 0);
         };
         return MovePlane;
     }(paper.Behaviour));
     __reflect(MovePlane.prototype, "MovePlane");
+    var movepos = 11.8;
+    var CharControl = (function (_super) {
+        __extends(CharControl, _super);
+        function CharControl() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.curline = 0;
+            _this.isMoving = false;
+            _this.destpos = 0;
+            _this.destline = 0;
+            return _this;
+        }
+        CharControl.prototype.onStart = function () {
+            this.curline = 0;
+        };
+        CharControl.prototype.onUpdate = function (deltaTime) {
+            if (this.isMoving) {
+                var pos = this.gameObject.transform.getPosition();
+                if (pos.x < this.destpos) {
+                    pos.x += deltaTime * 20;
+                    if (pos.x >= this.destpos) {
+                        pos.x = this.destpos;
+                        this.isMoving = false;
+                        this.curline = this.destline;
+                    }
+                }
+                if (pos.x > this.destpos) {
+                    pos.x -= deltaTime * 20;
+                    if (pos.x <= this.destpos) {
+                        pos.x = this.destpos;
+                        this.isMoving = false;
+                        this.curline = this.destline;
+                    }
+                }
+                this.gameObject.transform.setPosition(pos);
+            }
+        };
+        CharControl.prototype.Movexdir = function (dir) {
+            if (this.curline == -1 && dir == -1) {
+                return;
+            }
+            if (this.curline == 1 && dir == 1) {
+                return;
+            }
+            this.destline = this.curline + dir;
+            if (this.destline < -1) {
+                this.destline = -1;
+                return;
+            }
+            if (this.destline > 1) {
+                this.destline = 1;
+                return;
+            }
+            if (dir > 0) {
+                var anilist = ["left", "run"];
+                var ani = this.gameObject.getComponent(egret3d.Animation);
+                ani.play(anilist);
+            }
+            else {
+                var anilist = ["right", "run"];
+                var ani = this.gameObject.getComponent(egret3d.Animation);
+                ani.play(anilist);
+            }
+            this.destpos = this.destline * movepos;
+            this.isMoving = true;
+        };
+        return CharControl;
+    }(paper.Behaviour));
+    __reflect(CharControl.prototype, "CharControl");
     var GameUIScript = (function (_super) {
         __extends(GameUIScript, _super);
         function GameUIScript() {
@@ -158,13 +238,42 @@ var helloworld;
                 uiLayer.touchEnabled = false;
                 renderer.root.addChild(uiLayer);
                 var button = new eui.Button();
-                button.label = "Click!";
-                button.horizontalCenter = 0;
-                button.verticalCenter = 0;
+                button.label = "left";
+                // button.horizontalCenter = 0;
+                //    button.verticalCenter = 0;
+                button.x = 100;
+                button.y = egret3d.stage.screenViewport.h - 100;
+                button.width = 80;
+                button.height = 40;
                 uiLayer.addChild(button);
                 button.addEventListener(egret.TouchEvent.TOUCH_TAP, onButtonClick, this);
+                var button2 = new eui.Button();
+                button2.label = "right";
+                // button.horizontalCenter = 0;
+                //    button.verticalCenter = 0;
+                button2.x = egret3d.stage.screenViewport.w - 100;
+                button2.y = egret3d.stage.screenViewport.h - 100;
+                button2.width = 80;
+                button2.height = 40;
+                uiLayer.addChild(button2);
+                button2.addEventListener(egret.TouchEvent.TOUCH_TAP, onButtonClick2, this);
                 function onButtonClick(e) {
-                    showPannel("Button Click!");
+                    // showPannel("Button Click!");
+                    //  var pos:egret3d.Vector3 = person.transform.getPosition();
+                    person.getComponent(CharControl).Movexdir(1);
+                    /*  var anilist:string[] = ["left","run"]
+                      var ani =  person.getComponent(egret3d.Animation)
+                       ani.play(anilist)*/
+                }
+                function onButtonClick2(e) {
+                    // showPannel("Button Click!");
+                    person.getComponent(CharControl).Movexdir(-1);
+                    /*        var pos:egret3d.Vector3 = person.transform.getPosition();
+                           pos.x += 11.8;
+                           person.transform.setPosition(pos)
+                           var anilist:string[] = ["right","run"]
+                           var ani =  person.getComponent(egret3d.Animation)
+                            ani.play(anilist)*/
                 }
                 function showPannel(title) {
                     var panel = new eui.Panel();
