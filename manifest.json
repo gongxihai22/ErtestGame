@@ -8,6 +8,7 @@
 		"inspector/bin/inspector.js"
 	],
 	"game": [
-		"bin-debug/Main.js"
+		"bin-debug/Main.js",
+		"bin-debug/ObjectManager.js"
 	]
 }

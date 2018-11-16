@@ -92,6 +92,16 @@ var helloworld;
                         pos.z -= 200;
                         plane2.transform.setPosition(pos);
                         plane2.addComponent(MovePlane);
+                        /*    await RES.getResAsync("Assets/BarbWireSingleLane.prefab.json");
+                            const preabcol = RES.getRes("Assets/BarbWireSingleLane.prefab.json") as egret3d.Prefab
+                            const obstacle = preabcol.createInstance()
+                            obstacle.addComponent(MovePlane);
+                        
+                             await RES.getResAsync("Assets/TreeStump.prefab.json");
+                            const preabcol2 = RES.getRes("Assets/TreeStump.prefab.json") as egret3d.Prefab
+                            const obstacle2 = preabcol2.createInstance()
+                            obstacle2.addComponent(MovePlane);*/
+                        ObjectManager.getInstance().loadAllObj();
                         // createCube();
                         createGameUI();
                         return [2 /*return*/];
@@ -142,7 +152,7 @@ var helloworld;
         }
         MovePlane.prototype.onUpdate = function (deltaTime) {
             var pos = this.gameObject.transform.getPosition();
-            pos.z += 10 * deltaTime;
+            pos.z += 15 * deltaTime;
             if (pos.z >= 200)
                 pos.z = -200;
             this.gameObject.transform.setPosition(pos);

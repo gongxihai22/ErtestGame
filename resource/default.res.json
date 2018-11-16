@@ -12,6 +12,11 @@
 			"name": "default_thm_json"
 		},
 		{
+			"url": "Assets/BarbWireSingleLane.prefab.json",
+			"type": "Prefab",
+			"name": "Assets/BarbWireSingleLane.prefab.json"
+		},
+		{
 			"url": "Assets/MainRoad.scene.json",
 			"type": "Scene",
 			"name": "Assets/MainRoad.scene.json"
@@ -40,6 +45,41 @@
 			"url": "Assets/Runpath.scene.json",
 			"type": "Scene",
 			"name": "Assets/Runpath.scene.json"
+		},
+		{
+			"url": "Assets/TreeStump.prefab.json",
+			"type": "Prefab",
+			"name": "Assets/TreeStump.prefab.json"
+		},
+		{
+			"url": "Assets/Textures/Characters/T_C_Prisoner.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/Textures/Characters/T_C_Prisoner.image.json"
+		},
+		{
+			"url": "Assets/Textures/Characters/T_C_Prisoner.png",
+			"type": "Texture",
+			"name": "Assets/Textures/Characters/T_C_Prisoner.png"
+		},
+		{
+			"url": "Assets/Textures/Environment/T_E_Forestpathway.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/Textures/Environment/T_E_Forestpathway.image.json"
+		},
+		{
+			"url": "Assets/Textures/Environment/T_E_Forestpathway.png",
+			"type": "Texture",
+			"name": "Assets/Textures/Environment/T_E_Forestpathway.png"
+		},
+		{
+			"url": "Assets/Textures/Obstacles/T_O_TreeStump.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/Textures/Obstacles/T_O_TreeStump.image.json"
+		},
+		{
+			"url": "Assets/Textures/Obstacles/T_O_TreeStump.png",
+			"type": "Texture",
+			"name": "Assets/Textures/Obstacles/T_O_TreeStump.png"
 		},
 		{
 			"url": "Assets/Meshes/Characters/Prisoner_death.ani.bin",
@@ -82,39 +122,49 @@
 			"name": "Assets/Meshes/Characters/scurity_guard_rig_polySurface13.mesh.bin"
 		},
 		{
-			"url": "Assets/Textures/Characters/T_C_Prisoner.image.json",
-			"type": "TextureDesc",
-			"name": "Assets/Textures/Characters/T_C_Prisoner.image.json"
-		},
-		{
-			"url": "Assets/Textures/Characters/T_C_Prisoner.png",
-			"type": "Texture",
-			"name": "Assets/Textures/Characters/T_C_Prisoner.png"
-		},
-		{
-			"url": "Assets/Textures/Environment/T_E_Forestpathway.image.json",
-			"type": "TextureDesc",
-			"name": "Assets/Textures/Environment/T_E_Forestpathway.image.json"
-		},
-		{
-			"url": "Assets/Textures/Environment/T_E_Forestpathway.png",
-			"type": "Texture",
-			"name": "Assets/Textures/Environment/T_E_Forestpathway.png"
-		},
-		{
 			"url": "Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin",
 			"type": "Animation",
 			"name": "Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin"
 		},
 		{
-			"url": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json",
+			"url": "Assets/UltimateKit/Meshes/Obstacles/polySurface1681.mesh.bin",
+			"type": "Mesh",
+			"name": "Assets/UltimateKit/Meshes/Obstacles/polySurface1681.mesh.bin"
+		},
+		{
+			"url": "Assets/UltimateKit/Meshes/Obstacles/polySurface1707.mesh.bin",
+			"type": "Mesh",
+			"name": "Assets/UltimateKit/Meshes/Obstacles/polySurface1707.mesh.bin"
+		},
+		{
+			"url": "Assets/UltimateKit/Meshes/Obstacles/Materials/BarbedWire_Background_gray.mat.json",
 			"type": "Material",
-			"name": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json"
+			"name": "Assets/UltimateKit/Meshes/Obstacles/Materials/BarbedWire_Background_gray.mat.json"
+		},
+		{
+			"url": "Assets/UltimateKit/Meshes/Obstacles/Materials/wood_textures_texture.mat.json",
+			"type": "Material",
+			"name": "Assets/UltimateKit/Meshes/Obstacles/Materials/wood_textures_texture.mat.json"
 		},
 		{
 			"url": "Assets/UltimateKit/Meshes/Patches/Materials/T_E_Forestpathway.mat.json",
 			"type": "Material",
 			"name": "Assets/UltimateKit/Meshes/Patches/Materials/T_E_Forestpathway.mat.json"
+		},
+		{
+			"url": "Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.image.json"
+		},
+		{
+			"url": "Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.png",
+			"type": "Texture",
+			"name": "Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.png"
+		},
+		{
+			"url": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json",
+			"type": "Material",
+			"name": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json"
 		},
 		{
 			"url": "Assets/AssetRes/ResModel/Road/roadtex.mat.json",
@@ -157,6 +207,11 @@
 			"name": "egret_icon_png"
 		},
 		{
+			"url": "3d/Library/Cube.mesh.bin",
+			"type": "Mesh",
+			"name": "3d/Library/Cube.mesh.bin"
+		},
+		{
 			"url": "3d/Assets/boss_ym_gjfl.image.json",
 			"type": "TextureDesc",
 			"name": "3d/Assets/boss_ym_gjfl.image.json"
@@ -175,21 +230,6 @@
 			"url": "3d/Assets/ttttt.mat.json",
 			"type": "Material",
 			"name": "3d/Assets/ttttt.mat.json"
-		},
-		{
-			"url": "3d/Library/Cube.mesh.bin",
-			"type": "Mesh",
-			"name": "3d/Library/Cube.mesh.bin"
-		},
-		{
-			"url": "2d/assets/Button/button_down.png",
-			"type": "image",
-			"name": "button_down_png"
-		},
-		{
-			"url": "2d/assets/Button/button_up.png",
-			"type": "image",
-			"name": "button_up_png"
 		},
 		{
 			"url": "2d/assets/CheckBox/checkbox_select_disabled.png",
@@ -212,9 +252,14 @@
 			"name": "checkbox_unselect_png"
 		},
 		{
-			"url": "2d/assets/ItemRenderer/selected.png",
+			"url": "2d/assets/Button/button_down.png",
 			"type": "image",
-			"name": "selected_png"
+			"name": "button_down_png"
+		},
+		{
+			"url": "2d/assets/Button/button_up.png",
+			"type": "image",
+			"name": "button_up_png"
 		},
 		{
 			"url": "2d/assets/Panel/border.png",
@@ -227,24 +272,9 @@
 			"name": "header_png"
 		},
 		{
-			"url": "2d/assets/ProgressBar/thumb_pb.png",
+			"url": "2d/assets/ItemRenderer/selected.png",
 			"type": "image",
-			"name": "thumb_pb_png"
-		},
-		{
-			"url": "2d/assets/ProgressBar/track_pb.png",
-			"type": "image",
-			"name": "track_pb_png"
-		},
-		{
-			"url": "2d/assets/ScrollBar/roundthumb.png",
-			"type": "image",
-			"name": "roundthumb_png"
-		},
-		{
-			"url": "2d/assets/ScrollBar/track_sb.png",
-			"type": "image",
-			"name": "track_sb_png"
+			"name": "selected_png"
 		},
 		{
 			"url": "2d/assets/RadioButton/radiobutton_select_disabled.png",
@@ -265,6 +295,26 @@
 			"url": "2d/assets/RadioButton/radiobutton_unselect.png",
 			"type": "image",
 			"name": "radiobutton_unselect_png"
+		},
+		{
+			"url": "2d/assets/ProgressBar/thumb_pb.png",
+			"type": "image",
+			"name": "thumb_pb_png"
+		},
+		{
+			"url": "2d/assets/ProgressBar/track_pb.png",
+			"type": "image",
+			"name": "track_pb_png"
+		},
+		{
+			"url": "2d/assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb_png"
+		},
+		{
+			"url": "2d/assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb_png"
 		},
 		{
 			"url": "2d/assets/Slider/thumb.png",
