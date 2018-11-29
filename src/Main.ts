@@ -4,6 +4,7 @@ namespace helloworld {
     export async function run() {
         await RES.loadConfig("default.res.json", "resource/");
         await RES.getResAsync("logo.png");
+        await RES.loadGroup("preload",0);
 
         // Create camera.
        // egret3d.Camera.main;
@@ -13,23 +14,23 @@ namespace helloworld {
   //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
   // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
 
-    await RES.getResAsync("Assets/Runpath.scene.json");
+   // await RES.getResAsync("Assets/Runpath.scene.json");
     var   t:paper.Scene  = paper.Application.sceneManager.loadScene("Assets/Runpath.scene.json");
 
-    await RES.getResAsync("Assets/Prisoner.prefab.json");
-    const prefab = RES.getRes("Assets/Prisoner.prefab.json") as egret3d.Prefab
-    person = prefab.createInstance()
-    var ani =  person.getComponent(egret3d.Animation)
-    ani.play("run")
-    person.addComponent(CharControl)
+   // await RES.getResAsync("Assets/Prisoner.prefab.json");
+  //  const prefab = RES.getRes("Assets/Prisoner.prefab.json") as egret3d.Prefab
+   // person = prefab.createInstance()
+   // var ani =  person.getComponent(egret3d.Animation)
+  //  ani.play("run")
+  //  person.addComponent(CharControl)
     
 
     
-    await RES.getResAsync("Assets/Plane.prefab.json");
+ //   await RES.getResAsync("Assets/Plane.prefab.json");
     const preabplane = RES.getRes("Assets/Plane.prefab.json") as egret3d.Prefab
     const plane = preabplane.createInstance()
-   // var ani =  person.getComponent(egret3d.Animation)
-   // ani.play("run")
+  //  var ani =  person.getComponent(egret3d.Animation)
+ //   ani.play("run")
   //   var tt:paper.GameObject =  t.find("Plane")
      plane.addComponent(MovePlane);
 
@@ -48,6 +49,7 @@ namespace helloworld {
     const preabcol2 = RES.getRes("Assets/TreeStump.prefab.json") as egret3d.Prefab
     const obstacle2 = preabcol2.createInstance()
     obstacle2.addComponent(MovePlane);*/
+     ObjectManager.getInstance().loadMainchar()
 
     ObjectManager.getInstance().loadAllObj()
 
@@ -98,103 +100,18 @@ namespace helloworld {
 
         public onUpdate(deltaTime: number) {
             var pos:egret3d.Vector3 = this.gameObject.transform.getPosition();
-            pos.z += 15*deltaTime;
+            pos.z += 30*deltaTime;
             if(pos.z >= 200)
-                pos.z = -200;
+                pos.z = -194;
             this.gameObject.transform.setPosition(pos)
         }
     }
 
-    const movepos:number = 11.8;
-    class CharControl  extends paper.Behaviour {
 
-        private curline:number = 0
-        private isMoving:boolean = false
-        private destpos:number = 0;
-        private destline:number = 0;
-        
-        public onStart()
-        {
-            this.curline = 0;
-        }
-
-         public onUpdate(deltaTime: number) {
-             if(this.isMoving)
-             {
-                 var pos:egret3d.Vector3 = this.gameObject.transform.getPosition();
-                 if(pos.x < this.destpos)
-                 {
-                    pos.x += deltaTime *20;
-                    if(pos.x >= this.destpos)
-                    {
-                        pos.x =this.destpos
-                        this.isMoving = false
-                        this.curline = this.destline
-                    }
-
-                 }
-
-                 if(pos.x > this.destpos)
-                 {
-                    pos.x -= deltaTime *20;
-                    if(pos.x <= this.destpos)
-                    {
-                        pos.x =this.destpos
-                        this.isMoving = false
-                        this.curline = this.destline
-                    }
-                 }
-
-                 this.gameObject.transform.setPosition(pos);
-             }
-
-         }
-
-        public Movexdir(dir:number) //dir:0 left   1:right
-        {
-            if(this.curline == -1 && dir == -1)
-            {
-                return;
-            }
-             if(this.curline == 1 && dir == 1)
-            {
-                return;
-            }
-
-            this.destline = this.curline + dir;
-            if(this.destline < -1)
-             {
-                this.destline = -1;
-                return
-              }
-            if(this.destline > 1)
-              {
-                  this.destline = 1;
-                   return
-              }  
-            if(dir >0)
-            {
-                var anilist:string[] = ["left","run"]
-                var ani =  this.gameObject.getComponent(egret3d.Animation)
-                ani.play(anilist)
-            }
-            else
-            {
-                            
-                var anilist:string[] = ["right","run"]
-                var ani =  this.gameObject.getComponent(egret3d.Animation)
-                ani.play(anilist)
-            }
-
-            this.destpos  = this.destline * movepos
-            this.isMoving = true;
-            
-        }
-
-    }
 
 
     class GameUIScript extends paper.Behaviour {
+        private ptbegin:egret.Point = new egret.Point(0,0);
         public onStart() {
             const renderer = this.gameObject.getComponent(egret3d.Egret2DRenderer)!;
             const adapter = new egret3d.MatchWidthOrHeightAdapter();
@@ -209,7 +126,7 @@ namespace helloworld {
 
             function onThemeLoadComplete() {
                 const uiLayer = new eui.UILayer();
-                uiLayer.touchEnabled = false;
+                uiLayer.touchEnabled = true;
                 renderer.root.addChild(uiLayer);
 
                 let button = new eui.Button();
@@ -224,6 +141,8 @@ namespace helloworld {
                 uiLayer.addChild(button);
 
                 button.addEventListener(egret.TouchEvent.TOUCH_TAP, onButtonClick, this);
+                uiLayer.addEventListener(egret.TouchEvent.TOUCH_BEGIN,ontouchstart,this)
+                uiLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE,ontouchmove,this)
 
                  let button2 = new eui.Button();
                 button2.label = "right";
@@ -241,7 +160,7 @@ namespace helloworld {
                 function onButtonClick(e: egret.TouchEvent) {
                    // showPannel("Button Click!");
                            //  var pos:egret3d.Vector3 = person.transform.getPosition();
-                             person.getComponent(CharControl).Movexdir(1)
+                            ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(1)
 
                      /*  var anilist:string[] = ["left","run"]
                        var ani =  person.getComponent(egret3d.Animation)
@@ -250,7 +169,7 @@ namespace helloworld {
 
                  function onButtonClick2(e: egret.TouchEvent) {
                    // showPannel("Button Click!");
-                     person.getComponent(CharControl).Movexdir(-1)
+                      ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(-1)
                 /*        var pos:egret3d.Vector3 = person.transform.getPosition();
                        pos.x += 11.8;
                        person.transform.setPosition(pos)
@@ -258,6 +177,28 @@ namespace helloworld {
                        var ani =  person.getComponent(egret3d.Animation)
                         ani.play(anilist)*/
                 }
+
+
+
+                function ontouchstart(e: egret.TouchEvent)
+                {
+                    var tt = e;
+                    this.ptbegin.x = tt.localX;
+                    this.ptbegin.y = tt.localX;
+                } 
+
+                 function ontouchmove(e: egret.TouchEvent)
+                {
+                    var tt = e;
+                    var xdis = tt.localX -  this.ptbegin.x;
+                     console.log("dis.........." + xdis);
+                    if(xdis > 200.0)
+                       ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(-1)
+
+                    if(xdis < -200.0)
+                       ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(1)
+                }
+
 
                 function showPannel(title: string) {
                     let panel = new eui.Panel();

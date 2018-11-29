@@ -47,7 +47,7 @@ var helloworld;
 (function (helloworld) {
     function run() {
         return __awaiter(this, void 0, void 0, function () {
-            var t, prefab, ani, preabplane, plane, plane2, pos;
+            var t, preabplane, plane, plane2, pos;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, RES.loadConfig("default.res.json", "resource/")];
@@ -56,35 +56,14 @@ var helloworld;
                         return [4 /*yield*/, RES.getResAsync("logo.png")];
                     case 2:
                         _a.sent();
-                        // Create camera.
-                        // egret3d.Camera.main;
-                        // paper.Scene.create("MyTestScene.scene.json",true)
-                        //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
-                        // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
-                        return [4 /*yield*/, RES.getResAsync("Assets/Runpath.scene.json")];
+                        return [4 /*yield*/, RES.loadGroup("preload", 0)];
                     case 3:
-                        // Create camera.
-                        // egret3d.Camera.main;
-                        // paper.Scene.create("MyTestScene.scene.json",true)
-                        //    await RES.getResAsync("3d/Assets/MyTestScene.scene.json");
-                        // var   t:paper.Scene  = paper.Application.sceneManager.loadScene("3d/Assets/MyTestScene.scene.json");
                         _a.sent();
                         t = paper.Application.sceneManager.loadScene("Assets/Runpath.scene.json");
-                        return [4 /*yield*/, RES.getResAsync("Assets/Prisoner.prefab.json")];
-                    case 4:
-                        _a.sent();
-                        prefab = RES.getRes("Assets/Prisoner.prefab.json");
-                        person = prefab.createInstance();
-                        ani = person.getComponent(egret3d.Animation);
-                        ani.play("run");
-                        person.addComponent(CharControl);
-                        return [4 /*yield*/, RES.getResAsync("Assets/Plane.prefab.json")];
-                    case 5:
-                        _a.sent();
                         preabplane = RES.getRes("Assets/Plane.prefab.json");
                         plane = preabplane.createInstance();
-                        // var ani =  person.getComponent(egret3d.Animation)
-                        // ani.play("run")
+                        //  var ani =  person.getComponent(egret3d.Animation)
+                        //   ani.play("run")
                         //   var tt:paper.GameObject =  t.find("Plane")
                         plane.addComponent(MovePlane);
                         plane2 = preabplane.createInstance();
@@ -101,6 +80,7 @@ var helloworld;
                             const preabcol2 = RES.getRes("Assets/TreeStump.prefab.json") as egret3d.Prefab
                             const obstacle2 = preabcol2.createInstance()
                             obstacle2.addComponent(MovePlane);*/
+                        ObjectManager.getInstance().loadMainchar();
                         ObjectManager.getInstance().loadAllObj();
                         // createCube();
                         createGameUI();
@@ -152,86 +132,20 @@ var helloworld;
         }
         MovePlane.prototype.onUpdate = function (deltaTime) {
             var pos = this.gameObject.transform.getPosition();
-            pos.z += 15 * deltaTime;
+            pos.z += 30 * deltaTime;
             if (pos.z >= 200)
-                pos.z = -200;
+                pos.z = -194;
             this.gameObject.transform.setPosition(pos);
         };
         return MovePlane;
     }(paper.Behaviour));
     __reflect(MovePlane.prototype, "MovePlane");
-    var movepos = 11.8;
-    var CharControl = (function (_super) {
-        __extends(CharControl, _super);
-        function CharControl() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.curline = 0;
-            _this.isMoving = false;
-            _this.destpos = 0;
-            _this.destline = 0;
-            return _this;
-        }
-        CharControl.prototype.onStart = function () {
-            this.curline = 0;
-        };
-        CharControl.prototype.onUpdate = function (deltaTime) {
-            if (this.isMoving) {
-                var pos = this.gameObject.transform.getPosition();
-                if (pos.x < this.destpos) {
-                    pos.x += deltaTime * 20;
-                    if (pos.x >= this.destpos) {
-                        pos.x = this.destpos;
-                        this.isMoving = false;
-                        this.curline = this.destline;
-                    }
-                }
-                if (pos.x > this.destpos) {
-                    pos.x -= deltaTime * 20;
-                    if (pos.x <= this.destpos) {
-                        pos.x = this.destpos;
-                        this.isMoving = false;
-                        this.curline = this.destline;
-                    }
-                }
-                this.gameObject.transform.setPosition(pos);
-            }
-        };
-        CharControl.prototype.Movexdir = function (dir) {
-            if (this.curline == -1 && dir == -1) {
-                return;
-            }
-            if (this.curline == 1 && dir == 1) {
-                return;
-            }
-            this.destline = this.curline + dir;
-            if (this.destline < -1) {
-                this.destline = -1;
-                return;
-            }
-            if (this.destline > 1) {
-                this.destline = 1;
-                return;
-            }
-            if (dir > 0) {
-                var anilist = ["left", "run"];
-                var ani = this.gameObject.getComponent(egret3d.Animation);
-                ani.play(anilist);
-            }
-            else {
-                var anilist = ["right", "run"];
-                var ani = this.gameObject.getComponent(egret3d.Animation);
-                ani.play(anilist);
-            }
-            this.destpos = this.destline * movepos;
-            this.isMoving = true;
-        };
-        return CharControl;
-    }(paper.Behaviour));
-    __reflect(CharControl.prototype, "CharControl");
     var GameUIScript = (function (_super) {
         __extends(GameUIScript, _super);
         function GameUIScript() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.ptbegin = new egret.Point(0, 0);
+            return _this;
         }
         GameUIScript.prototype.onStart = function () {
             var renderer = this.gameObject.getComponent(egret3d.Egret2DRenderer);
@@ -245,7 +159,7 @@ var helloworld;
             theme.addEventListener(eui.UIEvent.COMPLETE, onThemeLoadComplete, this);
             function onThemeLoadComplete() {
                 var uiLayer = new eui.UILayer();
-                uiLayer.touchEnabled = false;
+                uiLayer.touchEnabled = true;
                 renderer.root.addChild(uiLayer);
                 var button = new eui.Button();
                 button.label = "left";
@@ -257,6 +171,8 @@ var helloworld;
                 button.height = 40;
                 uiLayer.addChild(button);
                 button.addEventListener(egret.TouchEvent.TOUCH_TAP, onButtonClick, this);
+                uiLayer.addEventListener(egret.TouchEvent.TOUCH_BEGIN, ontouchstart, this);
+                uiLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE, ontouchmove, this);
                 var button2 = new eui.Button();
                 button2.label = "right";
                 // button.horizontalCenter = 0;
@@ -270,20 +186,34 @@ var helloworld;
                 function onButtonClick(e) {
                     // showPannel("Button Click!");
                     //  var pos:egret3d.Vector3 = person.transform.getPosition();
-                    person.getComponent(CharControl).Movexdir(1);
+                    ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(1);
                     /*  var anilist:string[] = ["left","run"]
                       var ani =  person.getComponent(egret3d.Animation)
                        ani.play(anilist)*/
                 }
                 function onButtonClick2(e) {
                     // showPannel("Button Click!");
-                    person.getComponent(CharControl).Movexdir(-1);
+                    ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(-1);
                     /*        var pos:egret3d.Vector3 = person.transform.getPosition();
                            pos.x += 11.8;
                            person.transform.setPosition(pos)
                            var anilist:string[] = ["right","run"]
                            var ani =  person.getComponent(egret3d.Animation)
                             ani.play(anilist)*/
+                }
+                function ontouchstart(e) {
+                    var tt = e;
+                    this.ptbegin.x = tt.localX;
+                    this.ptbegin.y = tt.localX;
+                }
+                function ontouchmove(e) {
+                    var tt = e;
+                    var xdis = tt.localX - this.ptbegin.x;
+                    console.log("dis.........." + xdis);
+                    if (xdis > 200.0)
+                        ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(-1);
+                    if (xdis < -200.0)
+                        ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(1);
                 }
                 function showPannel(title) {
                     var panel = new eui.Panel();
