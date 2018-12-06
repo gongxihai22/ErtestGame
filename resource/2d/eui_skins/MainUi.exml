@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MainUi" width="1080" height="1920" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group width="1080" height="1920" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="imgstart" width="163" height="138" anchorOffsetX="0" anchorOffsetY="0" source="start_png" horizontalCenter="2.5" verticalCenter="102"/>
+	</e:Group>
+</e:Skin>
