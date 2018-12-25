@@ -58,6 +58,11 @@ class UIManager
         this.playUI.SetScore(0)
     }
 
+    public UpdateScore(score:number)
+    {
+           this.playUI.SetScore(score)
+    }
+
 
     public RemoveMainUI()
     {

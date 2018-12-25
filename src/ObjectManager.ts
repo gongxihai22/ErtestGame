@@ -9,15 +9,16 @@ class ObjectManager
 
     public objdata:any[] =
     [
-        {"obj":"Assets/TreeStump.prefab.json","x":14,"y":8,"z":-80,"line":1},
-        {"obj":"Assets/TreeStump.prefab.json","x":0,"y":8,"z":-50,"line":0},
+        {"obj":"Assets/TreeStump.prefab.json","x":14,"y":8,"z":-80,"line":1,"pt":-1},
+        {"obj":"Assets/TreeStump.prefab.json","x":0,"y":8,"z":-50,"line":0,"pt":-1},
      //  {"obj":"Assets/boss_ym_gjfl.prefab.json","x":-12,"y":5,"z":-150,"line":-1},
-          {"obj":"Assets/Crystle.prefab.json","x":-12,"y":5,"z":-150,"line":-1},
+         {"obj":"Assets/Crystle.prefab.json","x":-12,"y":-10,"z":-150,"line":-1,"pt":10},
     ]
 
     private  mapprefab:{[key:string] : egret3d.Prefab} = {};
     public  person:paper.GameObject ;
     public charcon:CharControl;
+    public nowscore:number = 0;
 
     public static getInstance()
     {
@@ -61,6 +62,7 @@ class ObjectManager
                 obstacle.transform.setPosition(pos);
                 var moveobj =  obstacle.addComponent(MoveObj);
                 moveobj.setcurline( element.line)
+                moveobj.setdata(element)
             
         });
     }
@@ -72,6 +74,7 @@ class ObjectManager
    class MoveObj extends paper.Behaviour {
         private _timer: number = 0;
         private curline:number = 0;
+        private objdata:any
         
 
         public onUpdate(deltaTime: number) {
@@ -91,6 +94,11 @@ class ObjectManager
 
         }
 
+        public setdata(data:any)
+        {
+            this.objdata = data;
+        }
+
         private checkcol(mainchr:CharControl)
         {
             if(this.curline == mainchr.curline)
@@ -103,6 +111,12 @@ class ObjectManager
                 if(Math.abs(z1-z2) < 5.0)
                 {
                   //  console.log("Col is on..........");
+                    if(this.objdata.pt > 0)
+                    {
+                        ObjectManager.getInstance().nowscore  += this.objdata.pt
+                        UIManager.getInstance().UpdateScore( ObjectManager.getInstance().nowscore);
+                    }
+                    
                 }
             }
         
