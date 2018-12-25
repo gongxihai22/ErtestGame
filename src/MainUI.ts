@@ -18,5 +18,9 @@ class MainUI extends BaseUI{
          ObjectManager.getInstance().loadAllObj()
 
 		 SceneManager.getInstance().CreateMainRoad()
+
+		 UIManager.getInstance().RemoveMainUI();
+
+		 UIManager.getInstance().ShowPlayUI();
 	}
 }

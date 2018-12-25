@@ -8,7 +8,12 @@
 		"inspector/bin/inspector.js"
 	],
 	"game": [
+		"bin-debug/BaseUI.js",
 		"bin-debug/Main.js",
-		"bin-debug/ObjectManager.js"
+		"bin-debug/MainUI.js",
+		"bin-debug/ObjectManager.js",
+		"bin-debug/PlayUI.js",
+		"bin-debug/SceneManager.js",
+		"bin-debug/UIManager.js"
 	]
 }

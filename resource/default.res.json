@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "logo.png,Assets/BarbWireSingleLane.prefab.json,Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.image.json,Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.mesh.bin,Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.png,Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/Materials/boss_ym_gjfl.mat.json,Assets/AssetRes/ResModel/drop/col_box02/col_box02.image.json,Assets/AssetRes/ResModel/drop/col_box02/col_box02.png,Assets/AssetRes/ResModel/drop/col_box02/Materials/col_box02.mat.json,Assets/AssetRes/ResModel/Road/roadtex.mat.json,Assets/Meshes/Characters/Prisoner_death.ani.bin,Assets/Meshes/Characters/Prisoner_glide.ani.bin,Assets/Meshes/Characters/Prisoner_jump.ani.bin,Assets/Meshes/Characters/Prisoner_left.ani.bin,Assets/Meshes/Characters/Prisoner_right.ani.bin,Assets/Meshes/Characters/Prisoner_run.ani.bin,Assets/Meshes/Characters/Prisoner_slide.ani.bin,Assets/Meshes/Characters/scurity_guard_rig_polySurface13.mesh.bin,Assets/Textures/Characters/T_C_Prisoner.image.json,Assets/Textures/Characters/T_C_Prisoner.png,Assets/Textures/Environment/T_E_Forestpathway.image.json,Assets/Textures/Environment/T_E_Forestpathway.png,Assets/Textures/Obstacles/T_O_TreeStump.image.json,Assets/Textures/Obstacles/T_O_TreeStump.png,Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin,Assets/UltimateKit/Meshes/Obstacles/Materials/BarbedWire_Background_gray.mat.json,Assets/UltimateKit/Meshes/Obstacles/Materials/wood_textures_texture.mat.json,Assets/UltimateKit/Meshes/Obstacles/polySurface1681.mesh.bin,Assets/UltimateKit/Meshes/Obstacles/polySurface1707.mesh.bin,Assets/UltimateKit/Meshes/Patches/Materials/T_E_Forestpathway.mat.json,Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json,Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.image.json,Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.png,Assets/Runpath.scene.json,Assets/Road.prefab.json,Assets/Prisoner.prefab.json,Assets/Plane.prefab.json,Assets/Mytest.scene.json,Assets/TreeStump.prefab.json,Assets/boss_ym_gjfl.prefab.json,Assets/MainRoad.scene.json,start_png",
+			"keys": "Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.image.json,Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.mesh.bin,Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.png,Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/Materials/boss_ym_gjfl.mat.json,Assets/AssetRes/ResModel/drop/col_box02/col_box02.image.json,Assets/AssetRes/ResModel/drop/col_box02/col_box02.png,Assets/AssetRes/ResModel/drop/col_box02/Materials/col_box02.mat.json,Assets/AssetRes/ResModel/Road/roadtex.mat.json,Assets/BarbWireSingleLane.prefab.json,Assets/boss_ym_gjfl.prefab.json,Assets/Crystle.prefab.json,Assets/MainRoad.scene.json,Assets/Meshes/Characters/Prisoner_death.ani.bin,Assets/Meshes/Characters/Prisoner_glide.ani.bin,Assets/Meshes/Characters/Prisoner_jump.ani.bin,Assets/Meshes/Characters/Prisoner_left.ani.bin,Assets/Meshes/Characters/Prisoner_right.ani.bin,Assets/Meshes/Characters/Prisoner_run.ani.bin,Assets/Meshes/Characters/Prisoner_slide.ani.bin,Assets/Meshes/Characters/scurity_guard_rig_polySurface13.mesh.bin,Assets/Mytest.scene.json,Assets/Plane.prefab.json,Assets/Prisoner.prefab.json,Assets/Road.prefab.json,Assets/Runpath.scene.json,Assets/Textures/Characters/T_C_Prisoner.image.json,Assets/Textures/Characters/T_C_Prisoner.png,Assets/Textures/Environment/T_E_Forestpathway.image.json,Assets/Textures/Environment/T_E_Forestpathway.png,Assets/Textures/Obstacles/T_O_TreeStump.image.json,Assets/Textures/Obstacles/T_O_TreeStump.png,Assets/TreeStump.prefab.json,Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin,Assets/UltimateKit/Meshes/Obstacles/Materials/BarbedWire_Background_gray.mat.json,Assets/UltimateKit/Meshes/Obstacles/Materials/wood_textures_texture.mat.json,Assets/UltimateKit/Meshes/Obstacles/polySurface1681.mesh.bin,Assets/UltimateKit/Meshes/Obstacles/polySurface1707.mesh.bin,Assets/UltimateKit/Meshes/Patches/Materials/T_E_Forestpathway.mat.json,Assets/UltimateKit/Meshes/Powerups/A_Crystal.mesh.bin,Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json,Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.image.json,Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.png,Assets/UltimateKit/Textures/Powerups/A_Crystal.image.json,Assets/UltimateKit/Textures/Powerups/A_Crystal.png,Assets/UltimateKit/Textures/Powerups/Materials/currency_orb_A_CrystalMat.mat.json",
 			"name": "preload"
 		}
 	],
@@ -17,6 +17,16 @@
 			"name": "default_thm_json"
 		},
 		{
+			"url": "Library/Cube.mesh.bin",
+			"type": "Mesh",
+			"name": "Library/Cube.mesh.bin"
+		},
+		{
+			"url": "Library/Plane.mesh.bin",
+			"type": "Mesh",
+			"name": "Library/Plane.mesh.bin"
+		},
+		{
 			"url": "Assets/BarbWireSingleLane.prefab.json",
 			"type": "Prefab",
 			"name": "Assets/BarbWireSingleLane.prefab.json"
@@ -25,6 +35,11 @@
 			"url": "Assets/boss_ym_gjfl.prefab.json",
 			"type": "Prefab",
 			"name": "Assets/boss_ym_gjfl.prefab.json"
+		},
+		{
+			"url": "Assets/Crystle.prefab.json",
+			"type": "Prefab",
+			"name": "Assets/Crystle.prefab.json"
 		},
 		{
 			"url": "Assets/MainRoad.scene.json",
@@ -137,6 +152,11 @@
 			"name": "Assets/UltimateKit/MecAnim_System/cubeman_Idle_1.ani.bin"
 		},
 		{
+			"url": "Assets/UltimateKit/Meshes/Powerups/A_Crystal.mesh.bin",
+			"type": "Mesh",
+			"name": "Assets/UltimateKit/Meshes/Powerups/A_Crystal.mesh.bin"
+		},
+		{
 			"url": "Assets/UltimateKit/Meshes/Obstacles/polySurface1681.mesh.bin",
 			"type": "Mesh",
 			"name": "Assets/UltimateKit/Meshes/Obstacles/polySurface1681.mesh.bin"
@@ -172,6 +192,21 @@
 			"name": "Assets/UltimateKit/Textures/Obstacles/T_O_BarbWire.png"
 		},
 		{
+			"url": "Assets/UltimateKit/Textures/Powerups/A_Crystal.image.json",
+			"type": "TextureDesc",
+			"name": "Assets/UltimateKit/Textures/Powerups/A_Crystal.image.json"
+		},
+		{
+			"url": "Assets/UltimateKit/Textures/Powerups/A_Crystal.png",
+			"type": "Texture",
+			"name": "Assets/UltimateKit/Textures/Powerups/A_Crystal.png"
+		},
+		{
+			"url": "Assets/UltimateKit/Textures/Powerups/Materials/currency_orb_A_CrystalMat.mat.json",
+			"type": "Material",
+			"name": "Assets/UltimateKit/Textures/Powerups/Materials/currency_orb_A_CrystalMat.mat.json"
+		},
+		{
 			"url": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json",
 			"type": "Material",
 			"name": "Assets/UltimateKit/Textures/Characters/Materials/T_C_Prisoner.mat.json"
@@ -198,12 +233,12 @@
 		},
 		{
 			"url": "Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.image.json",
-			"type": "TextureDesc",
+			"type": "json",
 			"name": "Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.image.json"
 		},
 		{
 			"url": "Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.mesh.bin",
-			"type": "Mesh",
+			"type": "bin",
 			"name": "Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/boss_ym_gjfl.mesh.bin"
 		},
 		{
@@ -215,16 +250,6 @@
 			"url": "Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/Materials/boss_ym_gjfl.mat.json",
 			"type": "Material",
 			"name": "Assets/AssetRes/ResModel/Character/boss/boss_ym_gjfl/Materials/boss_ym_gjfl.mat.json"
-		},
-		{
-			"url": "Library/Cube.mesh.bin",
-			"type": "Mesh",
-			"name": "Library/Cube.mesh.bin"
-		},
-		{
-			"url": "Library/Plane.mesh.bin",
-			"type": "Mesh",
-			"name": "Library/Plane.mesh.bin"
 		},
 		{
 			"url": "3d/Library/Cube.mesh.bin",
@@ -257,9 +282,39 @@
 			"name": "bg_jpg"
 		},
 		{
+			"url": "2d/assets/diamond.png",
+			"type": "image",
+			"name": "diamond_png"
+		},
+		{
 			"url": "2d/assets/egret_icon.png",
 			"type": "image",
 			"name": "egret_icon_png"
+		},
+		{
+			"url": "2d/assets/start.png",
+			"type": "image",
+			"name": "start_png"
+		},
+		{
+			"url": "2d/assets/TwFont.fnt",
+			"type": "font",
+			"name": "TwFont_fnt"
+		},
+		{
+			"url": "2d/assets/TWFont.png",
+			"type": "image",
+			"name": "TWFont_png"
+		},
+		{
+			"url": "2d/assets/Button/button_down.png",
+			"type": "image",
+			"name": "button_down_png"
+		},
+		{
+			"url": "2d/assets/Button/button_up.png",
+			"type": "image",
+			"name": "button_up_png"
 		},
 		{
 			"url": "2d/assets/CheckBox/checkbox_select_disabled.png",
@@ -280,21 +335,6 @@
 			"url": "2d/assets/CheckBox/checkbox_unselect.png",
 			"type": "image",
 			"name": "checkbox_unselect_png"
-		},
-		{
-			"url": "2d/assets/Button/button_down.png",
-			"type": "image",
-			"name": "button_down_png"
-		},
-		{
-			"url": "2d/assets/Button/button_up.png",
-			"type": "image",
-			"name": "button_up_png"
-		},
-		{
-			"url": "2d/assets/ItemRenderer/selected.png",
-			"type": "image",
-			"name": "selected_png"
 		},
 		{
 			"url": "2d/assets/Panel/border.png",
@@ -337,14 +377,9 @@
 			"name": "radiobutton_unselect_png"
 		},
 		{
-			"url": "2d/assets/ScrollBar/roundthumb.png",
+			"url": "2d/assets/ItemRenderer/selected.png",
 			"type": "image",
-			"name": "roundthumb_png"
-		},
-		{
-			"url": "2d/assets/ScrollBar/track_sb.png",
-			"type": "image",
-			"name": "track_sb_png"
+			"name": "selected_png"
 		},
 		{
 			"url": "2d/assets/Slider/thumb.png",
@@ -362,6 +397,16 @@
 			"name": "tracklight_png"
 		},
 		{
+			"url": "2d/assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb_png"
+		},
+		{
+			"url": "2d/assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb_png"
+		},
+		{
 			"url": "2d/assets/ToggleSwitch/handle.png",
 			"type": "image",
 			"name": "handle_png"
@@ -375,11 +420,6 @@
 			"url": "2d/assets/ToggleSwitch/on.png",
 			"type": "image",
 			"name": "on_png"
-		},
-		{
-			"name": "start_png",
-			"type": "image",
-			"url": "2d/assets/start.png"
 		}
 	]
 }

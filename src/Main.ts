@@ -49,41 +49,8 @@ namespace helloworld {
 
     UIManager.getInstance().InitUISystem()
 
- //  SceneManager.getInstance().CreateMainRoad()
-
-
-     
-
-       // createCube();
-     //   createGameUI();
     }
 
-    function createCube() {
-        const cube = paper.GameObject.create("Cube");
-        cube.transform.setLocalEulerAngles(45, 45, 0);
-        cube.addComponent(RotateScript);
-
-        const meshFilter = cube.addComponent(egret3d.MeshFilter);
-        meshFilter.mesh = egret3d.DefaultMeshes.CUBE;
-
-        const meshRenderer = cube.addComponent(egret3d.MeshRenderer);
-        const texture = RES.getRes("logo.png") as egret3d.Texture;
-        const material = egret3d.Material.create().setTexture(texture);
-        meshRenderer.material = material;
-    }
-
-
-    class RotateScript extends paper.Behaviour {
-        private _timer: number = 0;
-
-        public onUpdate(deltaTime: number) {
-            this._timer += deltaTime;
-            const sin = Math.sin(this._timer * 0.5);
-            const cos = -Math.cos(this._timer * 0.5);
-
-            this.gameObject.transform.setLocalEulerAngles(sin * 45, cos * 45, 0);
-        }
-    }
 
     
 

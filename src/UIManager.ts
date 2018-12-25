@@ -8,7 +8,9 @@ class UIManager
     }
 
     private static instance:UIManager = null;
-
+    private UIRoot:GameUIScript = null;
+    private mainUI:MainUI = null
+    private playUI:PlayUI = null
     
     public static getInstance()
     {
@@ -23,10 +25,48 @@ class UIManager
 
     public InitUISystem()
     {
-        const gameObject = paper.GameObject.create();
-        gameObject.name = "GameUI";
-        gameObject.addComponent(egret3d.Egret2DRenderer);
-        gameObject.addComponent(GameUIScript);
+        const gameobj = paper.GameObject.create();
+        gameobj.name = "GameUI";
+        gameobj.addComponent(egret3d.Egret2DRenderer);
+        this.UIRoot = gameobj.addComponent(GameUIScript);
+    }
+
+    public ShowMainUI()
+    {
+        if(this.mainUI == null)
+        {
+            this.mainUI = new MainUI();
+            this.UIRoot.addUI(this.mainUI)
+        } 
+        else
+        {
+            this.mainUI.visible = true;
+        }
+    }
+
+    public ShowPlayUI()
+    {
+        if(this.playUI == null)
+        {
+            this.playUI = new PlayUI();
+            this.UIRoot.addUI(this.playUI)
+        } 
+        else
+        {
+            this.playUI.visible = true;
+        }
+        this.playUI.SetScore(0)
+    }
+
+
+    public RemoveMainUI()
+    {
+        this.mainUI.visible = false;
+    }
+
+    public RemovePlayUI()
+    {
+        this.playUI.visible = false;
     }
 }
 
@@ -84,6 +124,12 @@ class ThemeAdapter implements eui.IThemeAdapter {
 
  class GameUIScript extends paper.Behaviour {
         private ptbegin:egret.Point = new egret.Point(0,0);
+        private uiLayer:eui.UILayer;
+         public addUI(ui:BaseUI)
+        {
+            if(this.uiLayer)
+                this.uiLayer.addChild(ui)
+        }
         public onStart() {
             const renderer = this.gameObject.getComponent(egret3d.Egret2DRenderer)!;
             const adapter = new egret3d.MatchWidthOrHeightAdapter();
@@ -96,15 +142,40 @@ class ThemeAdapter implements eui.IThemeAdapter {
             const theme = new eui.Theme("resource/2d/default.thm.json", renderer.stage);
             theme.addEventListener(eui.UIEvent.COMPLETE, onThemeLoadComplete, this);
 
+    
+            
+
             function onThemeLoadComplete() {
-                const uiLayer = new eui.UILayer();
-                uiLayer.touchEnabled = true;
-                renderer.root.addChild(uiLayer);
+                this.uiLayer = new eui.UILayer();
+                this.uiLayer.touchEnabled = true;
+                renderer.root.addChild(this.uiLayer);
 
-                var mainui = new MainUI();
-                uiLayer.addChild(mainui)
+                UIManager.getInstance().ShowMainUI();
+                this.uiLayer.addEventListener(egret.TouchEvent.TOUCH_BEGIN,ontouchstart,this)
+                this.uiLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE,ontouchmove,this)
 
-                let button = new eui.Button();
+                 function ontouchstart(e: egret.TouchEvent)
+                {
+                    var tt = e;
+                    this.ptbegin.x = tt.localX;
+                    this.ptbegin.y = tt.localX;
+                } 
+
+                 function ontouchmove(e: egret.TouchEvent)
+                {
+                    var tt = e;
+                    var xdis = tt.localX -  this.ptbegin.x;
+                    if(xdis > 200.0)
+                       ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(-1)
+
+                    if(xdis < -200.0)
+                       ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(1)
+                }
+
+             //   var mainui = new MainUI();
+               // uiLayer.addChild(mainui)
+
+            /*    let button = new eui.Button();
                 button.label = "left";
                // button.horizontalCenter = 0;
             //    button.verticalCenter = 0;
@@ -116,8 +187,7 @@ class ThemeAdapter implements eui.IThemeAdapter {
                 uiLayer.addChild(button);
 
                 button.addEventListener(egret.TouchEvent.TOUCH_TAP, onButtonClick, this);
-                uiLayer.addEventListener(egret.TouchEvent.TOUCH_BEGIN,ontouchstart,this)
-                uiLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE,ontouchmove,this)
+
 
                  let button2 = new eui.Button();
                 button2.label = "right";
@@ -137,42 +207,17 @@ class ThemeAdapter implements eui.IThemeAdapter {
                            //  var pos:egret3d.Vector3 = person.transform.getPosition();
                             ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(1)
 
-                     /*  var anilist:string[] = ["left","run"]
-                       var ani =  person.getComponent(egret3d.Animation)
-                        ani.play(anilist)*/
-                }
+        }
 
                  function onButtonClick2(e: egret.TouchEvent) {
-                   // showPannel("Button Click!");
+
                       ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(-1)
-                /*        var pos:egret3d.Vector3 = person.transform.getPosition();
-                       pos.x += 11.8;
-                       person.transform.setPosition(pos)
-                       var anilist:string[] = ["right","run"]
-                       var ani =  person.getComponent(egret3d.Animation)
-                        ani.play(anilist)*/
+    
                 }
 
 
 
-                function ontouchstart(e: egret.TouchEvent)
-                {
-                    var tt = e;
-                    this.ptbegin.x = tt.localX;
-                    this.ptbegin.y = tt.localX;
-                } 
 
-                 function ontouchmove(e: egret.TouchEvent)
-                {
-                    var tt = e;
-                    var xdis = tt.localX -  this.ptbegin.x;
-                     console.log("dis.........." + xdis);
-                    if(xdis > 200.0)
-                       ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(-1)
-
-                    if(xdis < -200.0)
-                       ObjectManager.getInstance().person.getComponent(CharControl).Movexdir(1)
-                }
 
 
                 function showPannel(title: string) {
@@ -181,7 +226,7 @@ class ThemeAdapter implements eui.IThemeAdapter {
                     panel.horizontalCenter = 0;
                     panel.verticalCenter = 0;
                     uiLayer.addChild(panel);
-                }
+                }*/
             }
         }
     }

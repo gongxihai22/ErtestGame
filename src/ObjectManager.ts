@@ -11,7 +11,8 @@ class ObjectManager
     [
         {"obj":"Assets/TreeStump.prefab.json","x":14,"y":8,"z":-80,"line":1},
         {"obj":"Assets/TreeStump.prefab.json","x":0,"y":8,"z":-50,"line":0},
-       {"obj":"Assets/boss_ym_gjfl.prefab.json","x":-12,"y":5,"z":-150,"line":-1},
+     //  {"obj":"Assets/boss_ym_gjfl.prefab.json","x":-12,"y":5,"z":-150,"line":-1},
+          {"obj":"Assets/Crystle.prefab.json","x":-12,"y":5,"z":-150,"line":-1},
     ]
 
     private  mapprefab:{[key:string] : egret3d.Prefab} = {};
