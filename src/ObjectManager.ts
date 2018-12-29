@@ -70,7 +70,7 @@ class ObjectManager
                 var obstacle2= prefab.createInstance()
                 var pos:egret3d.Vector3 = obstacle2.transform.getPosition();
                 pos.x = element.x;
-                pos.z = element.z;
+                pos.z = element.z - 200;
                  pos.y = element.y;
                 obstacle2.transform.setPosition(pos);
                 var moveobj2 =  obstacle2.addComponent(MoveObj);
@@ -108,7 +108,7 @@ class ObjectManager
         private _timer: number = 0;
         private curline:number = 0;
         private objdata:any
-        private bactive:boolean = false;
+        private bactive:boolean = true;
         
 
         public onUpdate(deltaTime: number) {
