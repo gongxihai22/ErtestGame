@@ -57,6 +57,7 @@ class SceneManager {
                 else
                     zdest =  SceneManager.getInstance().plane.transform.getPosition().z -199.5;
                 pos.z = zdest;
+                ObjectManager.getInstance().ResetMoveobj(pos.z,this._planeid);
                    
             }
                       

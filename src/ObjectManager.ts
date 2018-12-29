@@ -12,14 +12,14 @@ class ObjectManager
         {"obj":"Assets/TreeStump.prefab.json","x":14,"y":8,"z":-80,"line":1,"pt":-1},
         {"obj":"Assets/TreeStump.prefab.json","x":0,"y":8,"z":-50,"line":0,"pt":-1},
      //  {"obj":"Assets/boss_ym_gjfl.prefab.json","x":-12,"y":5,"z":-150,"line":-1},
-         {"obj":"Assets/Crystle.prefab.json","x":-12,"y":-10,"z":-150,"line":-1,"pt":10},
+         {"obj":"Assets/Crystle.prefab.json","x":-12,"y":-10,"z":-20,"line":-1,"pt":10},
     ]
 
     private  mapprefab:{[key:string] : egret3d.Prefab} = {};
     public  person:paper.GameObject ;
     public charcon:CharControl;
     public nowscore:number = 0;
-
+    public objlist:{[key:number]: MoveObj[]} = {};
     public static getInstance()
     {
 
@@ -43,9 +43,10 @@ class ObjectManager
 
 
    public async  loadAllObj() 
-
     {
       //   await RES.getResAsync("Assets/TreeStump.prefab.json")
+        var t1 = new Array<MoveObj>();
+        var t2 = new Array<MoveObj>();
         this.objdata.forEach(element => {
                 var prefab =  this.mapprefab[element.obj];
                 if(!prefab)
@@ -54,38 +55,87 @@ class ObjectManager
                    
                     prefab = RES.getRes(element.obj) as egret3d.Prefab
                 }
-                var obstacle = prefab.createInstance()
-                var pos:egret3d.Vector3 = obstacle.transform.getPosition();
+                var obstacle1 = prefab.createInstance()
+                var pos:egret3d.Vector3 = obstacle1.transform.getPosition();
                 pos.x = element.x;
                 pos.z = element.z;
                  pos.y = element.y;
-                obstacle.transform.setPosition(pos);
-                var moveobj =  obstacle.addComponent(MoveObj);
+                obstacle1.transform.setPosition(pos);
+                var moveobj =  obstacle1.addComponent(MoveObj);
                 moveobj.setcurline( element.line)
                 moveobj.setdata(element)
+             
+                t1.push(moveobj);
+
+                var obstacle2= prefab.createInstance()
+                var pos:egret3d.Vector3 = obstacle2.transform.getPosition();
+                pos.x = element.x;
+                pos.z = element.z;
+                 pos.y = element.y;
+                obstacle2.transform.setPosition(pos);
+                var moveobj2 =  obstacle2.addComponent(MoveObj);
+                moveobj2.setcurline( element.line)
+                moveobj2.setdata(element)
+              //  moveobj2.gameObject.activeSelf = false;
+             
+                t2.push(moveobj2);
+                
             
         });
+
+        this.objlist[1] = t1;
+         this.objlist[2] = t2;
+
+
+    }
+
+    public ResetMoveobj(zparent:number,id:number)
+    {
+        var list = this.objlist[id];
+        list.forEach(obj =>
+        {
+            obj.Reset(zparent);
+        })
+        
     }
 
 
 }
 
 
+
    class MoveObj extends paper.Behaviour {
         private _timer: number = 0;
         private curline:number = 0;
         private objdata:any
+        private bactive:boolean = false;
         
 
         public onUpdate(deltaTime: number) {
             var pos:egret3d.Vector3 = this.gameObject.transform.getPosition();
             pos.z += 30*deltaTime;
            //   console.log("add z........." + 30*deltaTime);
-            if(pos.z >= 200)
-                pos.z = -200;
+        //    if(pos.z >= 200)
+            {
+             //    pos.z = -200;
+           //      this.gameObject.hideFlags = 2;
+       //          this.bactive = true;
+        //         this.gameObject.activeSelf = true
+            }   
             this.gameObject.transform.setPosition(pos)
             this.checkcol(ObjectManager.getInstance().charcon);
        
+        }
+
+        public Reset(zparent:number)
+        {
+             var pos:egret3d.Vector3 = this.transform.getPosition();
+             pos.x = this.objdata.x;
+             pos.z = this.objdata.z + zparent;
+              pos.y = this.objdata.y;
+              this.transform.setPosition(pos);
+              this.bactive = true;
+              this.gameObject.activeSelf = true
         }
 
         public setcurline(line:number)
@@ -101,6 +151,9 @@ class ObjectManager
 
         private checkcol(mainchr:CharControl)
         {
+            if(!this.bactive)
+                return;
+                
             if(this.curline == mainchr.curline)
             {
                 var z1 = this.gameObject.transform.position.z;
@@ -111,10 +164,21 @@ class ObjectManager
                 if(Math.abs(z1-z2) < 5.0)
                 {
                   //  console.log("Col is on..........");
+                   this.gameObject.activeSelf = false;
+                     this.bactive = false;
                     if(this.objdata.pt > 0)
                     {
                         ObjectManager.getInstance().nowscore  += this.objdata.pt
                         UIManager.getInstance().UpdateScore( ObjectManager.getInstance().nowscore);
+                     //   this.gameObject.renderer.material.opacity = 0;
+                     //   var count = this.gameObject.renderer.materials.length
+                     //   var aa = this.gameObject.renderer.material.getColor();
+                    
+                       // this.gameObject.renderer.material.setColor(aa);
+                        // this.gameObject.hideFlags = 2;
+                       // this.gameObject.renderer.enabled = false;
+                      
+                      //  this.gameObject.destroy()
                     }
                     
                 }
@@ -124,7 +188,7 @@ class ObjectManager
 
     }
 
-        const movepos:number = 11.8;
+    const movepos:number = 11.8;
     class CharControl  extends paper.Behaviour {
 
         public curline:number = 2
