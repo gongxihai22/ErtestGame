@@ -48,7 +48,7 @@ class SceneManager {
 
         public onUpdate(deltaTime: number) {
             var pos:egret3d.Vector3 = this.gameObject.transform.getPosition();
-            pos.z += 30*deltaTime;
+            pos.z += 60*deltaTime;
             if( pos.z >=200 )
             {
                 var zdest =0;

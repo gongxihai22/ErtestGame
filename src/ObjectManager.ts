@@ -34,10 +34,18 @@ class ObjectManager
     public async loadMainchar()
     {
            // await RES.getResAsync("Assets/Prisoner.prefab.json");
-       const prefab = RES.getRes("Assets/Prisoner.prefab.json") as egret3d.Prefab
+      const prefab = RES.getRes("Assets/wukong.prefab.json") as egret3d.Prefab
+     
       this.person = prefab.createInstance()
+      this.person.transform. setLocalEulerAngles(0,180,0);
+      this.person.transform. setLocalScale(0.06,0.06,0.06);
+       var pos:egret3d.Vector3 =  this.person.transform.getPosition();
+
+        pos.z = pos.z + 80;
+
+        this.person.transform.setPosition(pos);
        var ani =  this.person.getComponent(egret3d.Animation)
-       ani.play("run")
+      ani.play("run")
       this.charcon = this.person.addComponent(CharControl)
     }
 
@@ -60,7 +68,7 @@ class ObjectManager
                 pos.x = element.x;
                 pos.z = element.z;
                  pos.y = element.y;
-                obstacle1.transform.setPosition(pos);
+                 obstacle1.transform.setPosition(pos);
                 var moveobj =  obstacle1.addComponent(MoveObj);
                 moveobj.setcurline( element.line)
                 moveobj.setdata(element)
@@ -113,7 +121,7 @@ class ObjectManager
 
         public onUpdate(deltaTime: number) {
             var pos:egret3d.Vector3 = this.gameObject.transform.getPosition();
-            pos.z += 30*deltaTime;
+            pos.z += 60*deltaTime;
            //   console.log("add z........." + 30*deltaTime);
         //    if(pos.z >= 200)
             {
@@ -151,6 +159,7 @@ class ObjectManager
 
         private checkcol(mainchr:CharControl)
         {
+          //  return;
             if(!this.bactive)
                 return;
                 

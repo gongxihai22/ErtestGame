@@ -4,9 +4,12 @@ namespace helloworld {
     declare var  plane2:paper.GameObject ;
 
     export async function run() {
-        await RES.loadConfig("default.res.json", "resource/");
-        await RES.getResAsync("logo.png");
-        await RES.loadGroup("preload",0);
+        var s = 0
+      //    await RES.loadConfig("https://h5gameres.kuaiyugo.com/chatgame/cocos_games_res/outSource/cowboy/20180810/resource/default.res.json", "https://h5gameres.kuaiyugo.com/chatgame/cocos_games_res/outSource/cowboy/20180810/resource");
+    //  await RES.loadConfig("http://129.204.122.74/resource/default.res.json", "http://129.204.122.74/resource/");
+    await RES.loadConfig("default.res.json", "resource/");
+    await RES.getResAsync("logo.png");
+    await RES.loadGroup("preload",0);
 
         // Create camera.
        // egret3d.Camera.main;
