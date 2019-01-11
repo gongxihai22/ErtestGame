@@ -1,0 +1,24 @@
+
+{
+    "grouplist":
+    
+    [
+
+        [
+            {"obj":"Assets/TreeStump.prefab.json","x":14,"y":8,"z":-80,"line":1,"pt":-1},
+            {"obj":"Assets/TreeStump.prefab.json","x":0,"y":8,"z":-50,"line":0,"pt":-1},
+
+            {"obj":"Assets/Crystle.prefab.json","x":-12,"y":-10,"z":-20,"line":-1,"pt":10}
+         ],
+
+         [
+            {"obj":"Assets/TreeStump.prefab.json","x":14,"y":8,"z":-80,"line":1,"pt":-1},
+            {"obj":"Assets/TreeStump.prefab.json","x":0,"y":8,"z":-50,"line":0,"pt":-1},
+
+            {"obj":"Assets/Crystle.prefab.json","x":-12,"y":-10,"z":-20,"line":-1,"pt":10}
+         ]
+
+        
+
+    ]
+}

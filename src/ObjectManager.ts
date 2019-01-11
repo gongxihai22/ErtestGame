@@ -20,6 +20,7 @@ class ObjectManager
     public charcon:CharControl;
     public nowscore:number = 0;
     public objlist:{[key:number]: MoveObj[]} = {};
+    private sceneobjconfig;
     public static getInstance()
     {
 
@@ -28,7 +29,14 @@ class ObjectManager
                 return this.instance;
          }
          this.instance = new ObjectManager();
+         if(!this.instance.sceneobjconfig)
+             this.instance.LoadObjConfig()
          return this.instance;
+    }
+
+    public LoadObjConfig()
+    {
+        this.sceneobjconfig =  RES.getRes("obstacle_json")
     }
 
     public async loadMainchar()
