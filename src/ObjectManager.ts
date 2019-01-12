@@ -21,6 +21,7 @@ class ObjectManager
     public nowscore:number = 0;
     public objlist:{[key:number]: MoveObj[]} = {};
     private sceneobjconfig;
+    public curconfigindex = 0;
     public static getInstance()
     {
 
@@ -61,7 +62,7 @@ class ObjectManager
    public async  loadAllObj() 
     {
       //   await RES.getResAsync("Assets/TreeStump.prefab.json")
-        var t1 = new Array<MoveObj>();
+   /*     var t1 = new Array<MoveObj>();
         var t2 = new Array<MoveObj>();
         this.objdata.forEach(element => {
                 var prefab =  this.mapprefab[element.obj];
@@ -100,18 +101,65 @@ class ObjectManager
         });
 
         this.objlist[1] = t1;
-         this.objlist[2] = t2;
+        this.objlist[2] = t2;
+        */
+        await this.LoadStageObj(this.sceneobjconfig.grouplist[ this.curconfigindex],this.curconfigindex)
+        this.curconfigindex++;
+         await this.LoadStageObj(this.sceneobjconfig.grouplist[ this.curconfigindex],this.curconfigindex)
+        this.curconfigindex++;
+         if(this.curconfigindex >= this.sceneobjconfig.grouplist.length)
+        {
+            this.curconfigindex = 0
+        }
+    }
 
+    public async LoadStageObj(data:any,index:number)
+    {
+            
+            if( this.objlist[index] != null)
+                return
+            var t1 = new Array<MoveObj>();
+            data.forEach(element => {
+            var prefab =  this.mapprefab[element.obj];
+            if(!prefab)
+            {
+                //  RES.getRes(element.obj);
+                
+                prefab = RES.getRes(element.obj) as egret3d.Prefab
+            }
+            var obstacle1 = prefab.createInstance()
+            var pos:egret3d.Vector3 = obstacle1.transform.getPosition();
+            pos.x = element.x;
+            pos.z = element.z;
+            pos.y = element.y;
+            obstacle1.transform.setPosition(pos);
+            var moveobj =  obstacle1.addComponent(MoveObj);
+            moveobj.setcurline( element.line)
+            moveobj.setdata(element)
+            
+            t1.push(moveobj);
+            })
+
+            this.objlist[index] = t1;
 
     }
 
     public ResetMoveobj(zparent:number,id:number)
     {
+  
+        
         var list = this.objlist[id];
         list.forEach(obj =>
         {
             obj.Reset(zparent);
         })
+
+        this.LoadStageObj(this.sceneobjconfig.grouplist[ this.curconfigindex],this.curconfigindex)
+        this.curconfigindex++;
+         if(this.curconfigindex >= this.sceneobjconfig.grouplist.length)
+        {
+            this.curconfigindex = 0
+        }
         
     }
 
